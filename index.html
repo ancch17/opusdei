@@ -739,16 +739,18 @@ footer .col{gap:18px;}
     var start = new Date('2026-08-28T19:30:00+08:00').getTime();
     var end   = new Date('2026-08-28T21:30:00+08:00').getTime();
     var now = Date.now();
+    /* calendar days apart in Singapore time, whatever timezone the reader is in */
+    function sgDay(ms){ return Math.floor((ms + 8 * 3600000) / 86400000); }
     var msg;
     if (now > end){
       msg = 'This evening has taken place. Gifts towards its cost are still welcome — and still needed.';
     } else if (now >= start){
       msg = 'Happening right now.';
     } else {
-      var days = Math.ceil((start - now) / 86400000);
-      if (days <= 1) msg = 'Tonight. Registration closes when the room is full.';
-      else if (days === 2) msg = 'Tomorrow evening.';
-      else msg = days + ' days to go.';
+      var days = sgDay(start) - sgDay(now);
+      if (days <= 0)      msg = 'Tonight. Registration closes when the room is full.';
+      else if (days === 1) msg = 'Tomorrow evening.';
+      else                 msg = days + ' days to go.';
       msg += ' Admission is free — the evening is not.';
     }
     el.textContent = msg;
