@@ -406,6 +406,36 @@ footer .col{gap:18px;}
 }
 
 
+
+/* ---------- speaker billing ---------- */
+.billing{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:2px;overflow:hidden;
+}
+.speaker{
+  background:var(--ground);padding:24px 22px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.speaker .role{
+  font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  font-weight:600;color:var(--brass);
+}
+.speaker h3{
+  font-family:Newsreader,"Iowan Old Style",Georgia,serif;
+  font-size:25px;line-height:1.14;font-weight:400;color:var(--ink);
+}
+.speaker p:not(.role){font-size:15px;line-height:1.58;color:var(--ink-soft);}
+@media (max-width:620px){
+  .billing{grid-template-columns:1fr;}
+  .speaker{padding:22px 20px;}
+}
+.floor{
+  margin-top:24px;padding-left:22px;border-left:2px solid var(--brass);
+  font-family:Newsreader,"Iowan Old Style",Georgia,serif;
+  font-size:clamp(19px,2.6vw,22px);line-height:1.5;color:var(--ink);
+  text-wrap:balance;
+}
+.welcome{margin-top:20px;font-size:15px;color:var(--muted);}
 </style>
 </head>
 <body>
@@ -462,12 +492,23 @@ footer .col{gap:18px;}
         <p class="eyebrow">Who you'll be listening to</p>
         <h2>Two people, one microphone, and your questions</h2>
       </div>
-      <div class="prose">
-        <p>We are delighted to welcome <strong>Monsignor Mariano Fazio</strong>, Auxiliary Vicar of Opus Dei, to Singapore. Argentine by birth, a historian by training and a philosopher by doctorate, he spent six years as Rector of the Pontifical University of the Holy Cross in Rome and has written more than twenty books on faith in a secular age. He has been thinking about this exact question — how a Christian lives in a world that has stopped waiting for him — for most of his working life.</p>
-        <p>He will be in conversation with <strong>Sharon Tong</strong>, formerly of Channel NewsAsia. That matters: a broadcast journalist's instinct is to keep ideas tethered to the actual week people are having. Expect the abstract to be pulled back down to earth, repeatedly.</p>
-        <p>Then the floor opens. <strong>There is real time set aside for audience questions</strong> — this is a conversation, not a lecture with a polite five minutes at the end.</p>
-        <p>Whether you are a student, a young professional, someone deep into a career, or simply after fresh air in your Christian life — you are welcome. Bring someone.</p>
+
+      <div class="billing">
+        <div class="speaker">
+          <p class="role">Auxiliary Vicar of Opus Dei</p>
+          <h3>Mgr Mariano Fazio</h3>
+          <p>Argentine. Historian, philosopher, former Rector of Rome's Pontifical University of the Holy Cross. Twenty books on keeping faith in a secular age.</p>
+        </div>
+        <div class="speaker">
+          <p class="role">Formerly of Channel NewsAsia</p>
+          <h3>Sharon Tong</h3>
+          <p>A broadcast journalist's instinct — to pull the big idea back down to the week you are actually having.</p>
+        </div>
       </div>
+
+      <p class="floor">Then the floor is yours. Real time is set aside for questions — this is a conversation, not a lecture with a polite five minutes at the end.</p>
+
+      <p class="welcome">Student, young professional, deep into a career, or just after fresh air in your Christian life — come. Bring someone.</p>
     </div></div>
   </section>
 
