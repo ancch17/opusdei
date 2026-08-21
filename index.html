@@ -419,6 +419,32 @@ footer .col{gap:18px;}
   .btn-glow,.btn-glow::after,.btn-glow .heart{animation:none;}
   .btn-glow{box-shadow:0 0 0 3px var(--glow-soft), 0 0 16px -4px var(--glow);}
 }
+
+/* ---------- venue ---------- */
+.venue{
+  display:flex;gap:16px;align-items:flex-start;
+  margin-top:22px;padding:20px 22px;
+  background:var(--ground-alt);
+  border:1px solid var(--line);
+  border-left:2px solid var(--brass);
+  border-radius:2px;
+  font-style:normal;
+}
+.venue .pin{color:var(--brass);flex:none;margin-top:2px;}
+.venue .pin svg{width:20px;height:20px;display:block;}
+.venue-body{display:flex;flex-direction:column;gap:7px;min-width:0;}
+.venue-body b{font-size:16px;font-weight:600;color:var(--ink);letter-spacing:.005em;}
+.venue-lines{font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
+.venue-links{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:3px;}
+.venue-links a{
+  font-size:13.5px;font-weight:600;color:var(--brass);text-decoration:none;
+  border-bottom:1px solid transparent;transition:border-color .18s;
+}
+.venue-links a:hover{border-color:var(--brass);}
+.venue-links .copy{margin-left:0;}
+@media (max-width:480px){
+  .venue{padding:18px;gap:13px;}
+}
 </style>
 </head>
 <body>
@@ -623,11 +649,29 @@ footer .col{gap:18px;}
           <span class="when">Free</span>
         </div>
         <div class="tt-row">
-          <span class="what">Venue and joining details</span>
-          <span class="where">Confirmed on the registration page</span>
-          <span class="when">See link below</span>
+          <span class="what">Venue</span>
+          <span class="where">St Mark &amp; St Matthew Halls, Level 1</span>
+          <span class="when">Upper Bukit Timah</span>
         </div>
       </div>
+
+      <address class="venue">
+        <span class="pin" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        </span>
+        <span class="venue-body">
+          <b>St Mark &amp; St Matthew Halls</b>
+          <span class="venue-lines">
+            Level 1, St Francis Xavier Major Seminary<br>
+            618 Upper Bukit Timah Road<br>
+            Singapore 678214
+          </span>
+          <span class="venue-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=618%20Upper%20Bukit%20Timah%20Road%20Singapore%20678214" target="_blank" rel="noopener">Open in Google Maps</a>
+            <button class="copy" data-toast="Address copied" data-copy="St Mark &amp; St Matthew Halls, Level 1, St Francis Xavier Major Seminary, 618 Upper Bukit Timah Road, Singapore 678214" type="button">Copy address</button>
+          </span>
+        </span>
+      </address>
       <div class="cta-row" style="margin-top:26px;">
         <a class="btn btn-primary" href="https://tinyurl.com/InConversationDonMariano" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
@@ -763,7 +807,7 @@ footer .col{gap:18px;}
   /* copy buttons */
   Array.prototype.forEach.call(document.querySelectorAll('.copy'), function(b){
     b.addEventListener('click', function(){
-      copyText(b.dataset.copy, 'UEN ' + b.dataset.copy + ' copied');
+      copyText(b.dataset.copy, b.dataset.toast || ('UEN ' + b.dataset.copy + ' copied'));
     });
   });
 
